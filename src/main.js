@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
 class Core {
   configureStore = (reducers, preloadedState, enhancer) => {
@@ -22,6 +22,10 @@ class Core {
     if (this.store) {
       return this.store.dispatch;
     }
+  }
+
+  compose = (...methods) => {
+    return compose(...methods);
   }
 }
 
