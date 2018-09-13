@@ -1,0 +1,6 @@
+.idea
+.DS_Store
+package-lock.json
+lib
+coverage
+node_modules
