@@ -1,8 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 class Core {
-  configureStore = () => {
-    this.store = createStore();
+  configureStore = (reducers, preloadedState, enhancer) => {
+    this.store = createStore(reducers, preloadedState, enhancer);
     return this.store;
   }
 
