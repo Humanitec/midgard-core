@@ -49,6 +49,6 @@
     "axios": "^0.18.0",
     "redux": "^4.0.0",
     "rxjs": "^6.3.2",
-    "rxjs-compat": "^6.0.0-tactical-rc.1",
+    "rxjs-compat": "^6.0.0-tactical-rc.1"
   }
 }
