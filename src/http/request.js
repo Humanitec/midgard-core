@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Obgiservable';
+import { Observable } from 'rxjs/Observable';
 import axios from 'axios';
 
 // accepted methods by the client
