@@ -43,12 +43,12 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^3.0.4",
     "rimraf": "^2.6.2",
-    "rxjs-compat": "^6.0.0-tactical-rc.1",
     "webpack": "^4.18.0"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "redux": "^4.0.0",
-    "rxjs": "^6.3.2"
+    "rxjs": "^6.3.2",
+    "rxjs-compat": "^6.0.0-tactical-rc.1",
   }
 }
