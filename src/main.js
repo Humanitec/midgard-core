@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import http from './http/main';
 
 const Core = {
   redux: {
@@ -6,8 +7,8 @@ const Core = {
     combineReducers,
     applyMiddleware,
     compose
-  }
+  },
+  http
 };
-
 
 export default Core;
