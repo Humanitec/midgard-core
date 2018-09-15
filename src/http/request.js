@@ -1,5 +1,9 @@
 import { Observable } from 'rxjs/Observable';
 import axios from 'axios';
+import axiosCancel from 'axios-cancel';
+
+// adds cancel prototype method
+axiosCancel(axios);
 
 // accepted methods by the client
 const ACCEPTED_METHODS = ['GET', 'POST', 'PUT', 'DELETE'];
@@ -27,14 +31,35 @@ const request = (url, options) => {
   if (returnPromise) {
     result = axios.request(url, method, headers);
   } else {
+    // create sample request id
+    const requestId = `${Math.random()}-xhr-id`;
+    // XHR complete pointer
+    let completed = false;
+    // config object to be sent to the request
+    const config = {
+      url,
+      method,
+      headers,
+      requestId
+    };
     result = Observable.create((observer) => {
-      axios.request(url, method, headers)
+      axios.request(config)
         .then((response) => {
           observer.next(response);
+          completed = true;
           observer.complete();
         }).catch((error) => {
           observer.error(error);
+          completed = true;
         });
+      // teardown function to be called when ww call unsubscribe() on the observable
+      return () => {
+        if (completed === false) {
+          // cancel XHR
+          axios.cancel(requestId);
+          completed = true;
+        }
+      };
     });
   }
   return result;
