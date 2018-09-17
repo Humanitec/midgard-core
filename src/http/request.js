@@ -13,7 +13,12 @@ const ACCEPTED_METHODS = ['GET', 'POST', 'PUT', 'DELETE'];
  * @param options - object that contains the method, payload and headers
  */
 const request = (url, options) => {
-  let [method, data, headers, returnPromise] = options;
+  let {
+    method,
+    data,
+    headers,
+    returnPromise
+  } = options;
   data = data || {};
   headers = headers || {};
   method = method || 'GET';
@@ -23,7 +28,7 @@ const request = (url, options) => {
   }
   if (options && typeof options === 'object') { // validate if options are provided
     // validate if the method is valid
-    if (ACCEPTED_METHODS.indexOf(method.toUpperCase() === -1)) {
+    if (ACCEPTED_METHODS.indexOf(method.toUpperCase()) === -1) {
       throw new Error(`Invalid method, method must be ${ACCEPTED_METHODS.join(', ')}`);
     }
   }
