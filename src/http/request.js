@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import axios from 'axios';
 import axiosCancel from 'axios-cancel';
 
