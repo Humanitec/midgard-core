@@ -33,20 +33,20 @@ const request = (url, options) => {
     }
   }
   let result;
+  // create sample request id
+  const requestId = `${Math.random()}-xhr-id`;
+  // XHR complete pointer
+  let completed = false;
+  // config object to be sent to the request
+  const config = {
+    url,
+    method,
+    headers,
+    requestId
+  };
   if (returnPromise) {
-    result = axios.request(url, method, headers);
+    result = axios.request(config);
   } else {
-    // create sample request id
-    const requestId = `${Math.random()}-xhr-id`;
-    // XHR complete pointer
-    let completed = false;
-    // config object to be sent to the request
-    const config = {
-      url,
-      method,
-      headers,
-      requestId
-    };
     result = Observable.create((observer) => {
       axios.request(config)
         .then((response) => {
