@@ -1,14 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import http from './http/main';
 
-const Core = {
-  redux: {
-    createStore,
-    combineReducers,
-    applyMiddleware,
-    compose
-  },
-  http
+const redux = {
+  createStore,
+  combineReducers,
+  applyMiddleware,
+  compose
 };
 
-export default Core;
+export { redux, http };
