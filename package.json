@@ -1,6 +1,6 @@
 {
   "name": "midgard-core",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Frontend core module providing common capabilities",
   "main": "./lib/main.js",
   "scripts": {
