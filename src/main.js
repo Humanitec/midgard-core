@@ -1,10 +1,11 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose, replaceReducer } from 'redux';
 import http from './http/main';
 
 const redux = {
   createStore,
   combineReducers,
   applyMiddleware,
+  replaceReducer,
   compose
 };
 
