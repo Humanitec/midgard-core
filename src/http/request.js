@@ -40,6 +40,7 @@ const request = (url, options) => {
   // config object to be sent to the request
   const config = {
     url,
+    data,
     method,
     headers,
     requestId
