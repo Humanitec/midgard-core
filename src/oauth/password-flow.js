@@ -17,7 +17,7 @@ const authenticateWithCredentials = (credentials, options) => {
   let httpClientOptions = {
     method: 'POST',
     data: {
-      grant_type: password,
+      grant_type: 'password',
       username,
       password,
       client_id: clientId
