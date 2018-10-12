@@ -1,7 +1,7 @@
 import authenticateWithCredentials from './password-flow';
 
-const oAuth = {
+const oauth = {
   authenticateWithCredentials
 };
 
-export default oAuth;
+export default oauth;
