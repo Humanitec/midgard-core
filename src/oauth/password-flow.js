@@ -14,14 +14,15 @@ const authenticateWithCredentials = (credentials, options) => {
     clientId,
     tokenUrl,
   } = options;
+  let oauthData = new FormData();
+  oauthData.set('grant_type', 'password');
+  oauthData.set('username', username);
+  oauthData.set('password', password);
+  oauthData.set('client_id', clientId);
+
   let httpClientOptions = {
     method: 'POST',
-    data: {
-      grant_type: 'password',
-      username,
-      password,
-      client_id: clientId
-    }
+    data: oauthData
   };
   return http.request(tokenUrl, httpClientOptions);
 };
