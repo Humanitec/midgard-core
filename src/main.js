@@ -1,12 +1,12 @@
-import { createStore, combineReducers, applyMiddleware, compose, replaceReducer } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import http from './http/main';
+import oauth from './oauth/main';
 
 const redux = {
   createStore,
   combineReducers,
   applyMiddleware,
-  replaceReducer,
   compose
 };
 
-export { redux, http };
+export { redux, http, oauth };
