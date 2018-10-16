@@ -1,7 +1,8 @@
 import http from '../http/main';
 
+
 /**
- * authenticate with oAuth password flow
+ * authenticates with OAuth password flow
  * @param credentials - user credentials (username/password)
  * @param options - the app client id and the oauth token url
  */

@@ -9,6 +9,7 @@ axiosCancel(axios);
 const ACCEPTED_METHODS = ['GET', 'POST', 'PUT', 'DELETE'];
 
 /**
+ * sends a http request
  * @param url - the url of the request
  * @param options - object that contains the method, payload and headers
  */
