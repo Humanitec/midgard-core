@@ -17,10 +17,10 @@ describe('OAuth password flow', () => {
       tokenUrl : '/oauth/token',
     };
     const mockOauthData = new FormData();
-    oauthData.set('grant_type', 'password');
-    oauthData.set('username', mockCredentials.username);
-    oauthData.set('password', mockCredentials.password);
-    oauthData.set('client_id', mockOptions.clientId);
+    mockOauthData.set('grant_type', 'password');
+    mockOauthData.set('username', mockCredentials.username);
+    mockOauthData.set('password', mockCredentials.password);
+    mockOauthData.set('client_id', mockOptions.clientId);
     const mockHttpClientOptions = {
       method: 'POST',
       data: mockOauthData
