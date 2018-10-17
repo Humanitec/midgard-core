@@ -3,10 +3,10 @@ const webpackConfig = require('./webpack.config.dev.js');
 
 module.exports = function (config) {
   config.set({
-   
+
     frameworks: ['jasmine'],
     files: [
-      'test/**/*.js'
+      'test/**/*.js',
     ],
     port: 9876, // karma web server port
     colors: true,
@@ -17,9 +17,11 @@ module.exports = function (config) {
     concurrency: Infinity,
 
     preprocessors: {
-      'src/**/*.js': ['webpack', 'sourcemap'],
-      'test/**/*.js': ['webpack', 'sourcemap']
+      'test/**/*.js': ['webpack', 'sourcemap'],
     },
+
+    reporters: ['progress', 'coverage'],
+
 
     // anything named karma-* is normally auto included so you probably dont need this
     plugins: ['karma-coverage-istanbul-reporter', 'karma-jasmine', 'karma-chrome-launcher', 'karma-sourcemap-loader', 'karma-webpack'],
