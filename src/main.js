@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { combineEpics, createEpicMiddleware } from 'redux-observable';
+import { combineEpics, createEpicMiddleware, ofType } from 'redux-observable';
 import { createSelector } from 'reselect';
 import http from './http/main';
 import oauth from './oauth/main';
@@ -9,6 +9,7 @@ const redux = {
   createSelector,
   combineReducers,
   combineEpics,
+  ofType,
   createEpicMiddleware,
   applyMiddleware,
   compose
