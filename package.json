@@ -1,6 +1,6 @@
 {
   "name": "midgard-core",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "Frontend core module providing common capabilities",
   "main": "./lib/main.js",
   "scripts": {
@@ -49,6 +49,7 @@
     "axios": "^0.18.0",
     "axios-cancel": "^0.2.2",
     "redux": "^4.0.0",
+    "redux-observable": "^1.0.0",
     "reselect": "^4.0.0",
     "rxjs": "6.3.2"
   }
