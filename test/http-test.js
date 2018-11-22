@@ -44,14 +44,16 @@ describe('Http', () => {
       method : 'GET',
       data : {},
       headers: {},
-      returnPromise: true
+      returnPromise: true,
+      responseType: 3
     };
     const mockConfig = {
       url: 'fake/url',
       data: mockOptions.data,
       method : mockOptions.method,
       headers: mockOptions.headers,
-      requestId: '777-xhr-id'
+      requestId: '777-xhr-id',
+      responseType: 3
     };
     http.request('fake/url', mockOptions);
     expect(axios.request).toHaveBeenCalledWith(mockConfig);
