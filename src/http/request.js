@@ -18,7 +18,8 @@ const request = (url, options) => {
     method,
     data,
     headers,
-    returnPromise
+    returnPromise,
+    responseType
   } = options;
   data = data || {};
   headers = headers || {};
@@ -44,6 +45,7 @@ const request = (url, options) => {
     data,
     method,
     headers,
+    responseType,
     requestId
   };
   if (returnPromise) {
