@@ -4,9 +4,13 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
+        use: [{
           loader: 'babel-loader'
-        }
+        },
+        {
+          loader: 'istanbul-instrumenter-loader',
+          options: { esModules: true }
+        }]
       }
     ]
   },
