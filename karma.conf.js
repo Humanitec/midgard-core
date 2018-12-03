@@ -13,6 +13,7 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     browsers: ['Chrome'],
     autoWatch: true,
+    noSandbox: true,
     singleRun: false, // Karma captures browsers, runs the tests and exits
     concurrency: Infinity,
 
