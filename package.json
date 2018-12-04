@@ -5,7 +5,7 @@
   "main": "./lib/main.js",
   "scripts": {
     "clean": "rimraf lib",
-    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js",
+    "test": "karma start --single-run --browsers ChromeHeadlessNoSandbox karma.conf.js",
     "test:prod": "cross-env BABEL_ENV=production npm run test",
     "test:watch": "karma start && karma run karma.conf.js",
     "lint": "eslint src test",
