@@ -25,7 +25,7 @@ pipeline:
     commands:
       - npm run build --prod
     when:
-      event: [push]
+      event: [push, tag]
       status: [success]
 
   test:
@@ -33,15 +33,7 @@ pipeline:
     commands:
       - npm run test
     when:
-      event: [push]
-      status: [success]
-
-  prepublish:
-    image: registry.tola.io/humanitec/docker-nodejs-and-chrome:0.0.1-8.12.0-latest
-    commands:
-      - npm run test
-    when:
-      event: [tag]
+      event: [push, tag]
       status: [success]
 
   publish:
