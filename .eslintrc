@@ -1,4 +1,4 @@
-{
+ {
   "parser": "babel-eslint",
   "extends": "airbnb",
   "env": {
@@ -11,6 +11,8 @@
     "consistent-return":"off",
     "prefer-const": "off",
     "no-unused-vars": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "no-param-reassign":"off",
+    "no-console":"off"
   }
 }
