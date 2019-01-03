@@ -1,12 +1,6 @@
-export const LOG_LEVELS = {
-  LOG: 'LOG',
-  TRACE: 'TRACE',
-  DEBUG: 'DEBUG',
-  WARN: 'WARN',
-  ERROR: 'ERROR'
-};
+import LOG_LEVELS from './LogLevels';
 
-export class LogEntry {
+export default class LogEntry {
   constructor(message, logLevel = LOG_LEVELS.LOG) {
     this.message = message;
     if (!logLevelIsValid) {

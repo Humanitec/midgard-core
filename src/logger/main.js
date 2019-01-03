@@ -1,5 +1,6 @@
 import { request } from '../http/main';
-import { LOG_LEVELS, LogEntry } from './LogEntry';
+import LogEntry from './LogEntry';
+import LOG_LEVELS from './LogLevels';
 
 class Logger {
   constructor(logToServer = true, logToConsole = true) {
