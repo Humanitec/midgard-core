@@ -2,13 +2,13 @@ import { request } from '../http/main';
 import LogEntry from './LogEntry';
 import LOG_LEVELS from './LogLevels';
 
-class Logger {
-  constructor(logToServer = true, logToConsole = true) {
-    this.logToServer = logToServer;
-    this.logToConsole = logToConsole;
+export default class Logger {
+  constructor(options = {}) {
+    this.logToServer = 'logToServer' in options ? options.logToServer : true;
+    this.logToConsole = 'logToConsole' in options ? options.logToConsole : true;
   }
 
-  get LOG_LEVELS() {
+  get logLevels() {
     return LOG_LEVELS;
   }
 
@@ -19,7 +19,7 @@ class Logger {
     }
     if (this.logToConsole) {
       const method = console[level.toLowerCase()] || console.log;
-      method.apply(console, what);
+      method.apply(console, [what]);
     }
   }
 
@@ -35,5 +35,3 @@ class Logger {
       });
   }
 }
-
-export default Logger;
