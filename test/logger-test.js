@@ -21,6 +21,9 @@ describe('Logger', () => {
   it('Should log to both console and server with default settings', () => {
     
     const logger = new Logger();
+    logger.makeRequest = () => {
+
+    }
     
     spyOn(console,"log").and.callThrough();
     spyOn(logger,"makeRequest");
@@ -34,6 +37,9 @@ describe('Logger', () => {
   it('Should log to console only with logToServer set to false', () => {
     
     const logger = new Logger({logToServer: false});
+    logger.makeRequest = () => {
+        
+    }
     
     spyOn(console,"log").and.callThrough();
     spyOn(logger,"makeRequest");
@@ -47,6 +53,9 @@ describe('Logger', () => {
   it('Should log to server only with logToConsole set to false', () => {
     
     const logger = new Logger({logToConsole: false});
+    logger.makeRequest = () => {
+        
+    }
     
     spyOn(console,"log").and.callThrough();
     spyOn(logger,"makeRequest");

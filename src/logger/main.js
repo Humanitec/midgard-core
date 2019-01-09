@@ -1,23 +1,6 @@
-import { request } from '../http/main';
+import makeRequest from './makeRequest';
 import LogEntry from './LogEntry';
 import LOG_LEVELS from './LogLevels';
-
-/**
- * 
- * @param {Object} logEntry a LogEntry class instance
- * @param {string} APIURL an alternate API URL to send the log entry to
- */
-const makeRequest = (logEntry, APIURL) => {
-  const url = APIURL || `${this.baseAPIURL}/${this.loggingModuleURL}/`;
-  const options = {
-    method: 'POST',
-    data: logEntry
-  };
-  request(url, options)
-    .catch((e) => {
-      console.log(`Failed to send logEntry to server: ${e.message}`);
-    });
-};
 
 /**
  * Utility class providing server-side and local logging functionality
@@ -54,7 +37,8 @@ export default class Logger {
   log(what, level = LOG_LEVELS.LOG) {
     const logEntry = new LogEntry(what, level);
     if (this.logToServer) {
-      makeRequest(logEntry);
+      let fn = this.makeRequest || makeRequest;
+      fn(logEntry);
     }
     if (this.logToConsole) {
       const method = console[level.toLowerCase()] || console.log;
