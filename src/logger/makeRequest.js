@@ -11,7 +11,8 @@ export default (logEntry, APIURL) => {
   const url = APIURL || `${baseAPIURL}/${loggingModuleURL}/`;
   const options = {
     method: 'POST',
-    data: logEntry
+    data: logEntry,
+    returnPromise: true
   };
   request(url, options)
     .catch((e) => {
