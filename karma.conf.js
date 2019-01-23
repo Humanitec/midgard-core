@@ -11,7 +11,19 @@ module.exports = function (config) {
     port: 9876, // karma web server port
     colors: true,
     logLevel: config.LOG_INFO,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'Chrome',
+        flags: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--headless',
+          '--disable-gpu',
+          '--remote-debugging-port=9222',
+        ]
+      }
+    },
     autoWatch: true,
     singleRun: false, // Karma captures browsers, runs the tests and exits
     concurrency: Infinity,
@@ -20,7 +32,7 @@ module.exports = function (config) {
       'test/**/*.js': ['webpack', 'sourcemap'],
     },
 
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage-istanbul'],
 
 
     // anything named karma-* is normally auto included so you probably dont need this
@@ -38,8 +50,6 @@ module.exports = function (config) {
         chunks: false
       }
     },
-
-    reporters: ['coverage-istanbul'],
 
     // any of these options are valid: https://github.com/istanbuljs/istanbuljs/blob/aae256fb8b9a3d19414dcf069c592e88712c32c6/packages/istanbul-api/lib/config.js#L33-L39
     coverageIstanbulReporter: {
@@ -71,25 +81,20 @@ module.exports = function (config) {
       // enforce percentage thresholds
       // anything under these percentages will cause karma to fail with an exit code of 1 if not running in watch mode
       thresholds: {
-        emitWarning: false, // set to `true` to not fail the test command when thresholds are not met
+        emitWarning: true, // set to `true` to not fail the test command when thresholds are not met
         // thresholds for all files
         global: {
-          statements: 100,
-          lines: 100,
-          branches: 100,
-          functions: 100
+          statements: 65,
+          lines: 65,
+          branches: 65,
+          functions: 65
         },
         // thresholds per file
         each: {
-          statements: 100,
-          lines: 100,
-          branches: 100,
-          functions: 100,
-          overrides: {
-            'baz/component/**/*.js': {
-              statements: 98
-            }
-          }
+          statements: 65,
+          lines: 65,
+          branches: 65,
+          functions: 65
         }
       },
 

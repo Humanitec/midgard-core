@@ -1,16 +1,14 @@
 {
   "name": "midgard-core",
-  "version": "0.0.28",
+  "version": "0.0.32",
   "description": "Frontend core module providing common capabilities",
   "main": "./lib/main.js",
   "scripts": {
     "clean": "rimraf lib",
-    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js",
-    "test:prod": "cross-env BABEL_ENV=production npm run test",
+    "test": "karma start --single-run --browsers ChromeHeadlessNoSandbox karma.conf.js",
     "test:watch": "karma start && karma run karma.conf.js",
     "lint": "eslint src test",
-    "build": "cross-env BABEL_ENV=production babel src --out-dir lib",
-    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
+    "build": "npm run clean && cross-env BABEL_ENV=production babel src --out-dir lib"
   },
   "files": [
     "lib",
@@ -34,6 +32,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
+    "istanbul-instrumenter-loader": "^3.0.1",
     "jasmine": "^3.2.0",
     "jasmine-core": "^3.2.1",
     "karma": "^3.0.0",
