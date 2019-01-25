@@ -50,22 +50,11 @@ pipeline:
       - npm config set registry https://npm-proxy.fury.io/$${NPM_TOKEN}/humanitec/
       - npm config set always-auth
       - npx npm-login-cmd
+      - npm run build
       - npm publish
-      - cd /root/.npm/_logs
-      - ls
     secrets: [NPM_USER, NPM_PASS, NPM_EMAIL, NPM_TOKEN, SSH_KEY, SSH_PUBLIC_KEY]
     when:
       event: [tag]
-
-  # dumpnpmlog:
-  #   image: node:9.9.0
-  #   commands:
-  #     - cd /root/.npm/_logs
-  #     - ls
-  #     - ls -1 | tail -n 1 | xargs cat
-  #   when:
-  #     event: [push, tag]
-  #     status: [failure]
 
   notify:
     image: plugins/slack
