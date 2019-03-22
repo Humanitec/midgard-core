@@ -4,7 +4,7 @@ import http from '../http/main';
 /**
  * authenticates with OAuth password flow
  * @param credentials - user credentials (username/password)
- * @param options - the app client id and the oauth token url
+ * @param options - the app client id, the oauth token url and whether to return a promise
  */
 const authenticateWithCredentials = (credentials, options) => {
   let {
@@ -14,6 +14,7 @@ const authenticateWithCredentials = (credentials, options) => {
   let {
     clientId,
     tokenUrl,
+    returnPromise
   } = options;
   let oauthData = new FormData();
   oauthData.set('grant_type', 'password');
@@ -23,7 +24,8 @@ const authenticateWithCredentials = (credentials, options) => {
 
   let httpClientOptions = {
     method: 'POST',
-    data: oauthData
+    data: oauthData,
+    returnPromise
   };
   return http.request(tokenUrl, httpClientOptions);
 };
