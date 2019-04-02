@@ -15,6 +15,7 @@ describe('OAuth password flow', () => {
     const mockOptions = {
       clientId : 'test_client_id',
       tokenUrl : '/oauth/token',
+      returnPromise: true
     };
     const mockOauthData = new FormData();
     mockOauthData.set('grant_type', 'password');
@@ -23,6 +24,7 @@ describe('OAuth password flow', () => {
     mockOauthData.set('client_id', mockOptions.clientId);
     const mockHttpClientOptions = {
       method: 'POST',
+      returnPromise: true,
       data: mockOauthData
     };
     oauth.authenticateWithCredentials(mockCredentials, mockOptions);
@@ -41,5 +43,3 @@ describe('OAuth password flow', () => {
     expect(oauth.authenticateWithCredentials(mockCredentials, mockOptions)).toEqual(jasmine.any(Observable));
   });
 });
-
-
