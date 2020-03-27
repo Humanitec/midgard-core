@@ -14,7 +14,7 @@
     "lib",
     "src"
   ],
-  "author": "Alex Percsi <alex.percsi@humanitec.com>",
+  "author": "Alex Percsi",
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.1",
